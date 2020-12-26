@@ -21,8 +21,7 @@ jobs:
 
       - name: Build image
         run: |
-        tag=nightly-$(date '+%Y%m%d')
-        sed -i "/ks_image_tag/s/\:.*/\: $tag/g" roles/download/defaults/main.yml 
+        tag=nightly-$(date '+%Y%m%d') && sed -i "/ks_image_tag/s/\:.*/\: $tag/g" roles/download/defaults/main.yml 
         docker build . --file Dockerfile --tag $IMAGE_NAME
 
       - name: Log into registry
