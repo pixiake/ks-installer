@@ -1,11 +1,10 @@
 name: NightlyBuild
 
 on:
-  schedule:
-    # This is a UTC time
-    - cron: "0 16 * * *"
-  # Keep it only for test purpose, comment it once everything is ok
-  workflow_dispatch:
+  push:
+    # Publish `master` as Docker `latest` image.
+    branches:
+      - test
 
 env:
   # TODO: Change variable to your image's name.
